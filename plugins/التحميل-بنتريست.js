@@ -102,7 +102,7 @@ let handler = async (message, { conn, text, usedPrefix, command }) => {
 // إعادة تعريف المساعدات والتعليمات
 handler.help = ["pinterest"];
 handler.tags = ["downloader"];
-handler.command = /^(بين)$/i;
+handler.command = /^(ص)$/i;
 
 export default handler;
 

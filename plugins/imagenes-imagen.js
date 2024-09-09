@@ -1,8 +1,8 @@
 import { googleImage } from '@bochilteam/scraper'
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7} *${usedPrefix + command} اسـتـا*`;
+if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7} *${usedPrefix + command} مكه*`;
 const prohibited = ['سكس', 'نودز']
-if (prohibited.some(word => m.text.toLowerCase().includes(word))) return m.reply('*اي الـلـي بـتـبـحـث عـلـيـه ده يـسـطـا عـيـب انـا بـوت مـحـتـرم*')      
+if (prohibited.some(word => m.text.toLowerCase().includes(word))) return m.reply('*ايش الـلـي بـتـبـحـث عـلـيـه ذا يحمار عـيـب انـا بـوت مـحـتـرم*')      
 try {
 const res = await googleImage(text)
 let image = res.getRandom()

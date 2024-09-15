@@ -18,7 +18,7 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
     });
 
     let { key } = await conn.sendMessage(m.chat, {
-      text: "...انتظر أولاً اتبع @ELZA3EM GON",
+      text: "...انتظر",
     });
 
     let response = await fetch(`https://api.neastooid.xyz/api/ai/gpt4?q=${encodeURIComponent(text)}`);
@@ -53,7 +53,7 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
   }
 }
 
-handler.help = ['ai2'];
+handler.help = ['بوت'];
 handler.tags = ['ai'];
-handler.command = /^(ai2)$/i;
+handler.command = /^(بوت)$/i;
 export default handler;

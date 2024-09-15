@@ -48,7 +48,7 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
     previousMessages = [...previousMessages, { role: "user", content: text }];
   } catch (error) {
     await conn.sendMessage(m.chat, {
-      text: `خطأ: ${error.message}`,
+      text: `مرحباً كيف يمكنني مساعدتك: ${error.message}`,
     });
   }
 }

@@ -24,7 +24,7 @@ let handler = async (m, {
         await m.reply('error')
     }
 }
-handler.help = ["بوت"]
+handler.help = ["بوت1"]
 handler.tags = ["ai"];
 handler.command = /^(بوت1)$/i
 

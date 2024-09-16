@@ -1,7 +1,7 @@
 const handler = async (m, { conn }) => {
   let messageText = m.text.toLowerCase();
 
-  if (messageText.includes('ميدو') || messageText.includes('mido')) {
+  if (messageText.includes('ستيفن') || messageText.includes('ستيفن')) {
     const emojis = [
       '😂', '😎', '👍', '🔥', '❤️', '😄', '🎉', '😉', '💯', '🤔',
       '😜', '🤩', '🥳', '🤗', '😇', '🙃', '😏', '🤤', '😱', '🥺',

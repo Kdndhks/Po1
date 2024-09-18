@@ -57,18 +57,18 @@ const cleanTranslation = (translatedText) => {
 
 // Command mapping for Kurumi
 const commandMapping = {
-  'kurumi': "كورومي"
+  'Steve': "ستيف"
 };
 
 // Main handler function for the command
 const handler = async (message, { conn, text }) => {
   if (!text) {
-    throw "يرجى إدخال نص للتحدث مع كورومي :3";
+    throw "يرجى إدخال نص للتحدث مع ستيف :3";
   }
 
   let translatedCommand;
   try {
-    translatedCommand = await translateGoogle("kurumi", 'es', 'en');
+    translatedCommand = await translateGoogle("Steve", 'es', 'en');
   } catch (error) {
     throw new Error("حدث خطأ في ترجمة الأمر: " + error);
   }
@@ -116,7 +116,7 @@ const handler = async (message, { conn, text }) => {
             contextInfo: {
               externalAdReply: {
                 title: `${characterName} - C.ai by ɢᴀʙʀɪᴇʟ-ᴊᴛxꜱ`,
-                body: "𝑀 𝐼 𝑇 𝑺 𝑈 𝑅 - 𝙰 𝙸",
+                body: "STIVEN - 𝙰 𝙸",
                 thumbnailUrl: "https://i.pinimg.com/564x/07/bd/59/07bd5983131fd16de41b8d8c43661512.jpg",
                 sourceUrl: "channel"
               }
@@ -136,9 +136,9 @@ const handler = async (message, { conn, text }) => {
 };
 
 // Help and command tags in Arabic
-handler.help = ["كورومي <النص>"];
+handler.help = ["ستيف <النص>"];
 handler.tags = ['ذكاء_اصطناعي'];
-handler.command = /^(كورومي)$/i; // Command is now "كورومي"
+handler.command = /^(ستيف)$/i; // Command is now "ستيف"
 handler.register = true;
 
 export default handler;

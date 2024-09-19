@@ -13,7 +13,7 @@ const translateGoogle = async (text, sourceLang, targetLang) => {
 };
 
 const commandMapping = {
-  'emilia': "ميتسوري"
+  'Stephen': "ستيفن"
 };
 
 const getVoices = async () => {
@@ -53,12 +53,12 @@ const convertTextToSpeech = async (text, voiceId) => {
 
 let handler = async (message, { conn, text }) => {
   if (!text) {
-    throw "*🌸مثال*\n *ميتسوري اهلا بيكي*";
+    throw "*🌸مثال*\n *ستيفن اهلا بك*";
   }
   
   let command;
   try {
-    command = await translateGoogle("emilia", 'es', 'en');
+    command = await translateGoogle("Stephen", 'es', 'en');
   } catch (error) {
     throw new Error("مشكلة في ترجمة الأمر: " + error);
   }
@@ -107,7 +107,7 @@ let handler = async (message, { conn, text }) => {
             contextInfo: {
               externalAdReply: {
                 title: "AI",
-                body: "ميتسوري AI",
+                body: "ستيفن AI",
                 thumbnailUrl: "https://files.catbox.moe/97h83a.jpg",
                 sourceUrl: "canal"
               }
@@ -133,8 +133,8 @@ let handler = async (message, { conn, text }) => {
   }
 };
 
-handler.help = ["rem <txt>"];
-handler.tags = ['IA'];
-handler.command = /^(ميتسوري|متسوري)$/i;
+handler.help = ["ستيفن <txt>"];
+handler.tags = ['ذكاء_اصطناعي'];
+handler.command = /^(ستيفن|Stephen)$/i;
 
 export default handler;

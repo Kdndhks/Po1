@@ -57,7 +57,7 @@ const cleanTranslation = (translatedText) => {
 
 // Command mapping for Kurumi
 const commandMapping = {
-  'Steve': "ستيف"
+  'steve': "ستيف"
 };
 
 // Main handler function for the command
@@ -68,7 +68,7 @@ const handler = async (message, { conn, text }) => {
 
   let translatedCommand;
   try {
-    translatedCommand = await translateGoogle("Steve", 'es', 'en');
+    translatedCommand = await translateGoogle("steve", 'es', 'en');
   } catch (error) {
     throw new Error("حدث خطأ في ترجمة الأمر: " + error);
   }

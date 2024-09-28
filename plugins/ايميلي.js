@@ -13,7 +13,7 @@ const translateGoogle = async (text, sourceLang, targetLang) => {
 };
 
 const commandMapping = {
-  'Sheikh': "شيخ"
+  'sheikh': "شيخ"
 };
 
 const getVoices = async () => {
@@ -58,7 +58,7 @@ let handler = async (message, { conn, text }) => {
   
   let command;
   try {
-    command = await translateGoogle("Sheikh", 'es', 'en');
+    command = await translateGoogle("sheikh", 'es', 'en');
   } catch (error) {
     throw new Error("مشكلة في ترجمة الأمر: " + error);
   }

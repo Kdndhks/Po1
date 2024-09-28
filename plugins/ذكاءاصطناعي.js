@@ -55,5 +55,5 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
 
 handler.help = ['ai'];
 handler.tags = ['ai'];
-handler.command = /^(ماس)$/i;
+handler.command = /^(بوت1)$/i;
 export default handler;

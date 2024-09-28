@@ -11,7 +11,7 @@ let handler = async (m, {
         text = args.slice(0).join(" ")
     } else if (m.quoted && m.quoted.text) {
         text = m.quoted.text
-    } else throw "قول عايز اي يقلب اخوق🙂‍↔️"
+    } else throw "هاذا الامر تحت الصيانه🙂‍↔️"
     await m.reply(wait)
     const messages = [
     { role: 'system', content: 'You are a helpful assistant.' },
@@ -21,7 +21,7 @@ let handler = async (m, {
         let res = await chatWithGPT(messages)
         await m.reply(res.choices[0].message.content)
     } catch (e) {
-        await m.reply('error')
+        await m.reply('الامر هاذا ليس شغال استخدم امر .شيخ')
     }
 }
 handler.help = ["بوت"]

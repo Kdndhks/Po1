@@ -13,7 +13,7 @@ const translateGoogle = async (text, sourceLang, targetLang) => {
 };
 
 const commandMapping = {
-  'emilia': "ايميلي"
+  'Sheikh': "شيخ"
 };
 
 const getVoices = async () => {
@@ -53,12 +53,12 @@ const convertTextToSpeech = async (text, voiceId) => {
 
 let handler = async (message, { conn, text }) => {
   if (!text) {
-    throw "*🍷مثال*\n *ايميلي اهلا بيكي*";
+    throw "*🍷مثال*\n *شيخ اهلا بك*";
   }
   
   let command;
   try {
-    command = await translateGoogle("emilia", 'es', 'en');
+    command = await translateGoogle("Sheikh", 'es', 'en');
   } catch (error) {
     throw new Error("مشكلة في ترجمة الأمر: " + error);
   }
@@ -107,7 +107,7 @@ let handler = async (message, { conn, text }) => {
             contextInfo: {
               externalAdReply: {
                 title: "AI",
-                body: "ايميلي AI",
+                body: "شيخ AI",
                 thumbnailUrl: "https://files.catbox.moe/97h83a.jpg",
                 sourceUrl: "canal"
               }
@@ -135,6 +135,6 @@ let handler = async (message, { conn, text }) => {
 
 handler.help = ["rem <txt>"];
 handler.tags = ['IA'];
-handler.command = /^(ايميلي|ايملي)$/i;
+handler.command = /^(شيخ|شيخه)$/i;
 
 export default handler;

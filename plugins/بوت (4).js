@@ -21,12 +21,12 @@ let handler = async (m, {
         let res = await chatWithGPT(messages)
         await m.reply(res.choices[0].message.content)
     } catch (e) {
-        await m.reply('الامر هاذا ليس شغال استخدم امر .ماس')
+        await m.reply('الامر هاذا ليس شغال استخدم امر .شيخ')
     }
 }
 handler.help = ["بوت"]
 handler.tags = ["ai"];
-handler.command = /^(ماس)$/i
+handler.command = /^(شيخ)$/i
 
 export default handler
 

@@ -1,59 +1,42 @@
-import fetch from "node-fetch";
+import fetch from 'node-fetch';
 
-let previousMessages = [];
+const handler = async (m, { conn, text }) => {
+  if (!text) return conn.sendMessage(m.chat, { text: 'Please provide questions ex : \n .ai hello' }, { quoted: m });
+  const { key } = await m.reply("*wait...*");
 
-const handler = async (m, { text, usedPrefix, command, conn }) => {
-  try {
-    if (!text) {
-      throw "أدخل السؤال!\n\n*مثال:* من هو رئيس إندونيسيا؟";
-    }
+  // API URL
+  const apiUrl = "https://agungdev.us.kg/api/ai/gpt?query=" + encodeURIComponent(text);
 
-    let name = conn.getName(m.sender);
+  try {
+    // Sending request to API
+    const response = await fetch(apiUrl, {
+      method: "GET",
+      headers: {
+        "accept": "application/json",
+      }
+    });
 
-    await conn.sendMessage(m.chat, {
-      react: {
-        text: "☁",
-        key: m.key,
-      },
-    });
+    const result = await response.json();
 
-    let { key } = await conn.sendMessage(m.chat, {
-      text: "...انتظر",
-    });
+    // Check if request was successful
+    if (result.status) {
+      const aiResponse = result.result.message; // Get AI response from API
+      await conn.sendMessage(m.chat, {
+        text: "*SILANA AI*: \n" + aiResponse,
+        edit: key,
+      });
+    } else {
+      conn.sendMessage(m.chat, { text: 'Failed to get response from AI. Please try again.' }, { quoted: m });
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    conn.sendMessage(m.chat, { text: 'An error occurred while trying to connect to the API.' }, { quoted: m });
+  }
+};
 
-    let response = await fetch(`https://api.neastooid.xyz/api/ai/gpt4?q=${encodeURIComponent(text)}`);
-
-    if (!response.ok) {
-      throw new Error("فشل الطلب إلى واجهة OpenAI");
-    }
-
-    let result = await response.json();
-
-    if (result.code !== 200 || !result.status) {
-      throw new Error("استجابة غير متوقعة من واجهة البرمجة");
-    }
-
-    await conn.sendMessage(m.chat, {
-      react: {
-        text: "🌧",
-        key: m.key,
-      },
-    });
-
-    await conn.sendMessage(m.chat, {
-      text: "" + result.gpt,
-      edit: key,
-    });
-
-    previousMessages = [...previousMessages, { role: "user", content: text }];
-  } catch (error) {
-    await conn.sendMessage(m.chat, {
-      text: `مرحباً كيف يمكنني مساعدتك: ${error.message}`,
-    });
-  }
-}
-
+// Metadata for the handler
 handler.help = ['ai'];
+handler.command = ['ai'];
 handler.tags = ['ai'];
-handler.command = /^(بوت1)$/i;
+
 export default handler;

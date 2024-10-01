@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
 const handler = async (m, { conn, text }) => {
-  if (!text) return conn.sendMessage(m.chat, { text: 'Please provide questions ex : \n .ai hello' }, { quoted: m });
+  if (!text) return conn.sendMessage(m.chat, { text: 'يرجى تقديم أسئلة على سبيل المثال : \n بوت معلومه سريعه عن الاسلام.' }, { quoted: m });
   const { key } = await m.reply("*wait...*");
 
   // API URL
@@ -35,8 +35,8 @@ const handler = async (m, { conn, text }) => {
 };
 
 // Metadata for the handler
-handler.help = ['ai'];
+handler.help = ['بوت'];
 handler.command = ['ai'];
-handler.tags = ['ai'];
+handler.tags = ['بوت'];
 
 export default handler;

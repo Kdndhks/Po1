@@ -35,7 +35,7 @@ const handler = async (m, { conn, text }) => {
 };
 
 // Metadata for the handler
-handler.help = ['بوت'];
+handler.help = ['ai'];
 handler.command = ['ai'];
 handler.tags = ['بوت'];
 

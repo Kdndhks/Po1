@@ -22,7 +22,7 @@ let handler = async (m, {
 }
 handler.help = ["gptvoc"]
 handler.tags = ["ai"];
-handler.command = /^(بوت)$/i
+handler.command = /^(gptvoc)$/i
 handler.register = handler.limit = false
 
 export default handler
@@ -46,7 +46,7 @@ const ChatGpt = async (prompt) => {
         });
 
         const inputString = await response.text();
-        const dataArray = inputString.split( \n\n );
+        const dataArray = inputString.split('\n\n');
 
         const regex = /data: (\{.*?\})/g;
         const jsonMatches = [];

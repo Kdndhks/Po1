@@ -11,9 +11,10 @@ let handler = async (m, {
         text = args.slice(0).join(" ")
     } else if (m.quoted && m.quoted.text) {
         text = m.quoted.text
-    } else throw "🛰️ *أدخل طلبك للرد عليك بالذكاء*⚡ مثال كالآتي  : \n 
-.بوت مكتشف الجاذبيه الارضيه
- .بوت معلومه سريعه عن الاسلام "
+    } else throw "🛰️ *أدخل طلبك للرد عليك بالذكاء*
+
+⚡ مثال كالآتي: : \n بوت مكتشف الجاذبيه الارضيه
+ .بوت معلومه سريعه عن الاسلام"
     await m.reply(wait)
     try {
         let res = await ChatGpt(text)
@@ -48,7 +49,7 @@ const ChatGpt = async (prompt) => {
         });
 
         const inputString = await response.text();
-        const dataArray = inputString.split('\n\n');
+        const dataArray = inputString.split( \n\n );
 
         const regex = /data: (\{.*?\})/g;
         const jsonMatches = [];

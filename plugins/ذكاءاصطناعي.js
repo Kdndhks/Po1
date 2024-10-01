@@ -36,7 +36,7 @@ const handler = async (m, { conn, text }) => {
 
 // Metadata for the handler
 handler.help = ['ai'];
-handler.command = ['ai'];
-handler.tags = ['بوت'];
+handler.command = ['بووت'];
+handler.tags = ['ai'];
 
 export default handler;

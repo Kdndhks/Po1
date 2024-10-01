@@ -22,7 +22,7 @@ let handler = async (m, {
 }
 handler.help = ["gptvoc"]
 handler.tags = ["ai"];
-handler.command = /^(gptvoc)$/i
+handler.command = /^(شيخ)$/i
 handler.register = handler.limit = false
 
 export default handler
